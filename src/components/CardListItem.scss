@@ -1,0 +1,221 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.card {
+  width: 320px;
+  margin-bottom: 60px;
+
+  &__body {
+    user-select: none;
+    cursor: pointer;
+
+    .card.is-disabled & {
+      color: rgba($color: $disabled, $alpha: .5);
+      cursor: default;
+    }
+  }
+
+
+  &__header {
+    display: flex;
+    height: 44px;
+    margin-bottom: -1px; // Fix the gap in IE11/Edge
+  }
+
+  &__corner {
+    position: relative;
+    width: 43px;
+    @include slanted-border($accent);
+
+    .card__body:hover & {
+      @include slanted-border($accent--hover);
+    }
+
+    .card.is-selected & {
+      @include slanted-border($selected);
+    }
+
+    .card.is-disabled & {
+      @include slanted-border($disabled);
+    }
+  }
+
+  &__rectangle {
+    flex-grow: 1;
+    padding: 15px 0 0 8px;
+    border: 4px solid $accent;
+    border-bottom: none;
+    border-left: none;
+    border-radius: 0 12px 0 0;
+    background: #ffffff;
+    font-family: Trebuchet, sans-serif;
+    font-size: 16px;
+
+    .card__body:hover & {
+      border-color: $accent--hover;
+    }
+
+    .card.is-selected & {
+      border-color: $selected;
+    }
+
+    .card.is-disabled & {
+      border-color: $disabled;
+    }
+  }
+
+  &__desc {
+    color: $dimmed;
+
+    .card.has-note & {
+      color: $selected;
+    }
+
+    .card.is-disabled & {
+      color: inherit;
+    }
+  }
+
+  .selected-hover {
+    color: $selected;
+  }
+
+  &__main {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    width: 100%;
+    height: 437px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    padding: 0 46px 25px;
+    border: 4px solid $accent;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    background: #ffffff;
+
+    .card__body:hover & {
+      border-color: $accent--hover;
+    }
+
+    .card.is-selected & {
+      border-color: $selected;
+    }
+
+    .card.is-disabled & {
+      border-color: $disabled;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    z-index: 10;
+    margin: 0 0 15px;
+    font-size: 48px;
+    font-weight: bold;
+    font-family: "Trebuchet", sans-serif;
+  }
+
+  &__feature {
+    display: block;
+    font-size: 24px;
+  }
+
+  &__list {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: $dimmed;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: Trebuchet, sans-serif;
+
+    .card.is-disabled & {
+      color: inherit;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: -95px;
+    left: -25px;
+    z-index: 0;
+    width: 370px;
+
+    .card.is-disabled & {
+      opacity: .5;
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 81px;
+    height: 81px;
+    border-radius: 50%;
+    background: $accent;
+    color: #ffffff;
+    text-align: center;
+
+    .card__body:hover & {
+      background: $accent--hover;
+    }
+
+    .card.is-selected & {
+      background: $selected;
+    }
+
+    .card.is-disabled & {
+      background: $disabled;
+    }
+  }
+
+  &__weight {
+    position: relative;
+    top: 20px;
+  }
+
+  &__amount {
+    font-size: 42px;
+    line-height: 22px;
+  }
+
+  &__measure {
+    font-size: 21px;
+    line-height: 22px;
+  }
+
+  &__footer {
+    font-size: 13px;
+    line-height: 16px;
+    color: #ffffff;
+    text-align: center;
+
+    .card.is-disabled & {
+      color: #ffff66;
+    }
+  }
+
+  &__buy {
+    color: $accent;
+
+    &:hover {
+      color: $accent--hover;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    border-bottom: 1px dashed currentColor;
+    color: inherit;
+  }
+}
+
+@media (max-width: 1040px) {
+  .card {
+    margin-bottom: 20px;
+  }
+}

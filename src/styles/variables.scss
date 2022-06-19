@@ -1,0 +1,14 @@
+
+$base-font-family:     "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+$second-font-family:   "Exo 2", sans-serif;
+$base-font-size:       16px;
+
+$dark:            #000;
+$dimmed:          #666;
+$accent:          #1698d9;
+$selected:        #d91667;
+$disabled:        #b3b3b3;
+
+$accent--hover:   lighten(desaturate($accent, 2.96), 7.25);
+
+$container: 1200px;
